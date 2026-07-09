@@ -47,7 +47,7 @@ def generate_export(
 ) -> str:
     if include_all:
         if room_id is not None:
-            rows = fetch_bookings_raw(db, room_id)
+            rows = _fetch_scoped(db, org_id, None, room_id)
         else:
             rows = _fetch_scoped(db, org_id, None, None)
     else:
